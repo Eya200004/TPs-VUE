@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Les Bonnes Pièces - E-commerce</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <header>
+        <img src="logo_ecom-removebg-preview.png" alt="Logo">
+        <h1>Les Bonnes Pièces</h1>
+    </header>
+
+    <main id="app">
+        <aside class="filtres">
+            <h3>Filtres</h3>
+            <input type="text" v-model="recherche" placeholder="Rechercher une pièce...">
+            <h4>Catégorie</h4>
+            <select v-model="categorieFiltre">
+                <option v-for="cat in categories" :key="cat">{{ cat }}</option>
+            </select>
+            <h4>Disponibilité</h4>
+            <select v-model="disponibiliteFiltre">
+                <option value="toutes">Toutes</option>
+                <option value="disponible">Disponible</option>
+                <option value="indisponible">Rupture de stock</option>
+            </select>
+            <h4>Tri par prix</h4>
+            <select v-model="triPrix">
+                <option value="croissant">Prix croissant</option>
+                <option value="decroissant">Prix décroissant</option>
+            </select>
+            <h4>Panier ({{ panier.length }} articles)</h4>
+            <ul>
+                <li v-for="item in panier" :key="item.id">
+                    {{ item.nom }} - {{ item.prix }} €
+                </li>
+            </ul>
+        </aside>
+        <section class="fiches">
+            <div v-for="piece in piecesFiltrees" :key="piece.id" class="fiche">
+                <img :src="piece.image" :alt="piece.nom">
+                <h3>{{ piece.nom }}</h3>
+                <p>Catégorie : {{ piece.categorie }}</p>
+                <p>Prix : {{ piece.prix }} €</p>
+                <p :class="piece.disponible ? 'dispo' : 'non-dispo'">
+                    {{ piece.disponible ? 'Disponible' : 'Rupture de stock' }}
+                </p>
+                <button @click="ajouterAuPanier(piece)" :disabled="!piece.disponible">
+                    Ajouter au panier
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    pieces: [],
+                    recherche: '',
+                    categorieFiltre: 'Toutes',
+                    triPrix: 'croissant',
+                    disponibiliteFiltre: 'toutes',
+                    panier: []
+                }
+            },
+            computed: {
+                categories() {
+                    const cats = this.pieces.map(p => p.categorie);
+                    return ['Toutes', ...new Set(cats)];
+                },
+                piecesFiltrees() {
+                    let result = this.pieces;
+
+                    //recherche
+                    if (this.recherche) {
+                        const texte = this.recherche.toLowerCase();
+                        result = result.filter(p => p.nom.toLowerCase().includes(texte));
+                    }
+
+                    //catégorie
+                    if (this.categorieFiltre !== 'Toutes') {
+                        result = result.filter(p => p.categorie === this.categorieFiltre);
+                    }
+
+                    //disponibilité
+                    if (this.disponibiliteFiltre === 'disponible') {
+                        result = result.filter(p => p.disponible);
+                    } else if (this.disponibiliteFiltre === 'indisponible') {
+                        result = result.filter(p => !p.disponible);
+                    }
+
+                    //prix
+                    if (this.triPrix === 'croissant') {
+                        result.sort((a, b) => a.prix - b.prix);
+                    } else {
+                        result.sort((a, b) => b.prix - a.prix);
+                    }
+
+                    return result;
+                }
+            },
+            methods: {
+                ajouterAuPanier(piece) {
+                    this.panier.push(piece);
+                    alert(`${piece.nom} ajouté au panier !`);
+                },
+                chargerPieces() {
+                    fetch('pieces-autos.json')
+                        .then(res => res.json())
+                        .then(data => {
+                            this.pieces = data.map(p => ({
+                                ...p,
+                                image: p.image || 'images/default.png',
+                                disponible: p.disponible !== false
+                            }));
+                        })
+                        .catch(err => console.error('Erreur chargement JSON :', err));
+                }
+            },
+            mounted() {
+                this.chargerPieces();
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+</html>
