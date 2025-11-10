@@ -1,12 +1,10 @@
 <template>
   <div id="app">
     <h1>Gestion des emplois</h1>
-
     <div class="nav-buttons">
       <button @click="currentView = 'home'">Accueil</button>
       <button @click="currentView = 'add'">Ajouter un emploi</button>
     </div>
-
     <HomeView v-if="currentView === 'home'" 
               @editJob="editJob"
               @viewJob="viewJob"/>
@@ -20,7 +18,6 @@
                @delete="deleteJob"/>
   </div>
 </template>
-
 <script>
 import HomeView from './components/HomeView.vue'
 import AddJob from './components/AddJob.vue'
@@ -32,7 +29,7 @@ export default{
   components: { HomeView, AddJob, EditJob, JobDetail },
   data() {
     return {
-      currentView: 'home',  // home, add, edit, details
+      currentView: 'home',
       selectedJobId: null,
       selectedJob: null
     }
@@ -62,7 +59,6 @@ export default{
   }
 }
 </script>
-
 <style>
 #app{
   max-width: 900px;
@@ -103,7 +99,6 @@ input, textarea, select{
   border-radius: 6px;
   box-sizing: border-box;
 }
-
 form{
   background-color: #fff;
   padding: 15px 20px;
@@ -112,12 +107,10 @@ form{
   margin-bottom: 20px;
 }
 
-/* Liste des emplois */
 ul{
   list-style: none;
   padding: 0;
 }
-
 li{
   background-color: #fff;
   margin-bottom: 12px;
@@ -128,8 +121,6 @@ li{
   align-items: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
-
-/* Boutons dans la liste */
 li button{
   margin-left: 5px;
   padding: 6px 12px;
@@ -139,7 +130,6 @@ li button{
   font-size: 0.9rem;
   transition: 0.2s;
 }
-
 li button.edit{
   background-color: #2196F3;
   color: white;
@@ -147,7 +137,6 @@ li button.edit{
 li button.edit:hover{
   background-color: #1976D2;
 }
-
 li button.delete{
   background-color: #f44336;
   color: white;

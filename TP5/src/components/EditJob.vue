@@ -10,7 +10,6 @@
     </form>
   </div>
 </template>
-
 <script>
 export default{
   name: 'EditJob',
