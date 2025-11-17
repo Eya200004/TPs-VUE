@@ -1,0 +1,31 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Mon premier post",
+      "body": "Contenu complet de mon l'article",
+      "tags": [
+        "vue",
+        "tp"
+      ]
+    },
+    {
+      "id": "0a8a",
+      "title": "Introduction à l'intelligence artificielle",
+      "body": "L'intelligence artificielle (IA) est partout : des moteurs de recherche aux voitures autonomes. Cet article explique les concepts de base, y compris l'apprentissage supervisé et non supervisé, ainsi que des exemples simples pour se lancer dans le machine learning.",
+      "tags": [
+        "IA"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Les satellites",
+      "body": "Les satellites jouent un rôle crucial dans l'observation de la Terre. Ils permettent de suivre les changements climatiques, les catastrophes naturelles et la qualité de l'air. Cet article explique le fonctionnement des satellites d'observation, les différents types d'orbites et comment leurs données sont utilisées par les scientifiques pour mieux comprendre notre planète.",
+      "tags": [
+        "Satellites",
+        "Science",
+        "Espace"
+      ]
+    }
+  ]
+}
