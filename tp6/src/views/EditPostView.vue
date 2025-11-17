@@ -9,12 +9,11 @@
     </form>
   </div>
 </template>
-
 <script>
 import { ref, onMounted } from 'vue'
 import { usePosts } from '../composables/usePosts'
 
-export default {
+export default{
   props: ['postId'],      
   emits: ['change-view'],
   setup(props, { emit }){

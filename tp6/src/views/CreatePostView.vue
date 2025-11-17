@@ -42,7 +42,6 @@ export default {
   }
 }
 </script>
-
 <style scoped>
 .create-post{
   max-width: 600px;
@@ -52,7 +51,6 @@ export default {
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
-
 input, textarea{
   width: 100%;
   margin-bottom: 15px;
@@ -61,7 +59,6 @@ input, textarea{
   border: 1px solid #ccc;
   font-size: 1rem;
 }
-
 button{
   background: #4e54c8;
   color: white;
@@ -72,7 +69,6 @@ button{
   font-weight: bold;
   transition: 0.3s;
 }
-
 button:hover{
   background: #3b40a4;
 }

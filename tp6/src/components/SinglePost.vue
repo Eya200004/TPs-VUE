@@ -20,7 +20,7 @@
 import { inject } from 'vue'
 import { usePosts } from '../composables/usePosts'
 
-export default {
+export default{
   name: 'SinglePost',
   props: ['post'],
   inject: ['openDetail', 'openEdit'],
@@ -28,7 +28,7 @@ export default {
     const { deletePost } = usePosts()
     const refreshPosts = inject('refreshPosts')
 
-    const deleteThisPost = async (id) => {
+    const deleteThisPost = async (id) =>{
       if (confirm('Voulez-vous vraiment supprimer cet article ?')) {
         await deletePost(id)
         alert('Article supprimé !')

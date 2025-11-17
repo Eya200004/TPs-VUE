@@ -1,4 +1,4 @@
-# TP Blog - Projet pédagogique
+# TP Blog
 
 Ce projet est un blog réalisé avec Vue PAR Aya KARFI.  
 Il permet de **visualiser, ajouter, modifier et supprimer des articles**.
