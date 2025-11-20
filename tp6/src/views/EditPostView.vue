@@ -49,7 +49,6 @@ export default{
   }
 }
 </script>
-
 <style scoped>
 .edit-post{
   max-width: 600px;

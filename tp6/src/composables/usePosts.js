@@ -27,6 +27,5 @@ export function usePosts(){
     await axios.delete(`${apiURL}/${id}`)
     await getPosts()
   }
-
   return { posts, getPosts, createPost, updatePost, deletePost }
 }

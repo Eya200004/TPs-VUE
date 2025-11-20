@@ -1,13 +1,10 @@
 <template>
   <div class="post-card">
     <h3>{{ post.title }}</h3>
-
     <p class="snippet">{{ post.body.substring(0, 50) }}...</p>
-
     <p class="tags">
       <span v-for="tag in post.tags" :key="tag">#{{ tag }}</span>
     </p>
-
     <div class="buttons">
       <button class="detail" @click="openDetail(post.id)">Voir détail</button>
       <button class="edit" @click="openEdit(post.id)">Modifier</button>
@@ -15,7 +12,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import { inject } from 'vue'
 import { usePosts } from '../composables/usePosts'
@@ -35,7 +31,6 @@ export default{
         if (refreshPosts) refreshPosts()
       }
     }
-
     return { deleteThisPost }
   }
 }
