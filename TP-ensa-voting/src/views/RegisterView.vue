@@ -17,7 +17,7 @@ import { register } from "../services/authService";
 import { useRouter } from "vue-router";
 
 export default {
-  name: "RegisterView", // <-- multi-word
+  name: "RegisterView",
   setup() {
     const email = ref("");
     const password = ref("");

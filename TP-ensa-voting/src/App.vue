@@ -25,7 +25,7 @@
 
 <script>
 import { ref, onMounted } from "vue";
-import { auth } from "./firebase"; // garde ton chemin actuel
+import { auth } from "./firebase";
 import { logout } from "./services/authService";
 import { useRouter } from "vue-router";
 
