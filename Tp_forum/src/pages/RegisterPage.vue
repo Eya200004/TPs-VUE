@@ -92,7 +92,7 @@ export default {
           createdAt: new Date()
         });
 
-        window.location.href = `/profile/${u.uid}`;
+        window.location.href = `/`;
       } catch (err) {
         error.value = err.message;
       }
