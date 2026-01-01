@@ -3,6 +3,7 @@ import { auth } from "../firebase";
 
 const user = ref(null);
 
+// Écoute l'état de connexion Firebase
 auth.onAuthStateChanged((u) => {
   user.value = u;
 });

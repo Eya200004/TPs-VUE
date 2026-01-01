@@ -18,7 +18,7 @@
         </div>
       </b-card>
 
-      
+      <!-- Réponses -->
       <b-card class="mb-4">
         <h5>Réponses</h5>
         <div v-if="replies.length === 0" class="text-muted">Pas encore de réponses.</div>
@@ -33,6 +33,7 @@
         />
       </b-card>
 
+      <!-- Ajouter une réponse -->
       <b-card class="mb-4" v-if="user">
         <b-form @submit.prevent="addReply">
           <b-form-textarea 
@@ -131,19 +132,16 @@ export default {
 </script>
 
 <style scoped>
-h2.text-primary {
+h2.text-primary{
   font-weight: 600;
 }
-
-b-card {
+b-card{
   border-radius: 10px;
 }
-
-b-card p {
+b-card p{
   font-size: 1.05rem;
 }
-
-b-card small {
+b-card small{
   font-size: 0.85rem;
 }
 </style>

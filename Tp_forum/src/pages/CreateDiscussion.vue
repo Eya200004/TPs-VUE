@@ -34,7 +34,7 @@ export default {
     const category = ref("");
     const categories = ref(["Général", "Tech", "Sport", "Autres"]);
     const user = ref(null);
-
+    
     onMounted(() => {
       auth.onAuthStateChanged((u) => {
         if (u) user.value = u;

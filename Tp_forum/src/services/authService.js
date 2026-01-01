@@ -6,7 +6,7 @@ export const authService = {
   async register(name, email, password) {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
-
+    
     await setDoc(doc(db, "Users", user.uid), {
       name,
       email,

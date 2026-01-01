@@ -3,6 +3,7 @@
     <Navbar :user="user" />
 
     <b-container class="mt-4">
+      <!-- Barre de recherche / filtrage par catégorie -->
       <b-card class="mb-4 p-3">
         <b-form inline @submit.prevent="filterByCategory" class="d-flex flex-wrap align-items-center">
           <b-form-select 
@@ -15,6 +16,7 @@
         </b-form>
       </b-card>
 
+      <!-- Liste des discussions -->
       <b-row>
         <b-col 
           cols="12" md="6" lg="4" 
@@ -94,6 +96,7 @@ export default {
 </script>
 
 <style scoped>
+/* Text truncate pour limiter le contenu à une ligne */
 .text-truncate {
   overflow: hidden;
   white-space: nowrap;
