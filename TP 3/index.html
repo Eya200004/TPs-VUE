@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <img src="logo_ecom-removebg-preview.png" alt="Logo">
+        <img src="./photos/logo_ecom-removebg-preview.png" alt="Logo">
         <h1>Les Bonnes Pièces</h1>
     </header>
 
@@ -73,25 +73,21 @@
                 },
                 piecesFiltrees() {
                     let result = this.pieces;
-
                     //recherche
                     if (this.recherche) {
                         const texte = this.recherche.toLowerCase();
                         result = result.filter(p => p.nom.toLowerCase().includes(texte));
                     }
-
                     //catégorie
                     if (this.categorieFiltre !== 'Toutes') {
                         result = result.filter(p => p.categorie === this.categorieFiltre);
                     }
-
                     //disponibilité
                     if (this.disponibiliteFiltre === 'disponible') {
                         result = result.filter(p => p.disponible);
                     } else if (this.disponibiliteFiltre === 'indisponible') {
                         result = result.filter(p => !p.disponible);
                     }
-
                     //prix
                     if (this.triPrix === 'croissant') {
                         result.sort((a, b) => a.prix - b.prix);
